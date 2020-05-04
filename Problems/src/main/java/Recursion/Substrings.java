@@ -1,44 +1,39 @@
 package Recursion;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Substrings {
-    public static void getAllSubstrings(List<String> result, char[] arr, int index) {
-        if (index == arr.length){
+    public static void getAllSubstrings(List<String> result, String str, int index) {
+        if (index == str.length() + 1){
             return;
         }
-        String str = "";
-        for (int i = index; i < arr.length; i++) {
-                str += arr[i];
-                result.add(str);
+        for (int endIndex = index; endIndex < str.length(); endIndex++) {
+                result.add(str.substring(index, endIndex + 1));
         }
-        getAllSubstrings(result, arr, index + 1);
+        getAllSubstrings(result, str, index + 1);
     }
 
     public static List<String> getAllSubstrings(String str) {
-        char[] arr = str.toCharArray();
-        List<String> result = new ArrayList<>();
-        getAllSubstrings(result, arr, 0);
+        List<String> result = new LinkedList<>();
+        getAllSubstrings(result, str, 0);
         return result;
     }
 
     public static List<String> getAllSubstringsIter(String str) {
         char[] arr = str.toCharArray();
-        List<String> result = new ArrayList<>();
+        List<String> result = new LinkedList<>();
 
-        for (int index = 0; index < arr.length; index++) {
-            String aggrStr = "";
-            for (int i = index; i < arr.length; i++) {
-                aggrStr += arr[i];
-                result.add(aggrStr);
+        for (int begin = 0; begin < arr.length; begin++) {
+            for (int end = begin; end < arr.length; end++) {
+                result.add(str.substring(begin, end + 1));
             }
         }
         return result;
     }
-    
+
     public static void main(String[] args) {
-        List<String> result = getAllSubstrings("abc");
+        List<String> result = getAllSubstringsIter("abc");
         for (String s : result) {
             System.out.println(s);
         }
