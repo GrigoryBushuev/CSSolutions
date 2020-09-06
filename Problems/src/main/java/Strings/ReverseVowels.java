@@ -5,6 +5,11 @@ import java.util.Set;
 public class ReverseVowels {
     private static final Set<Character> Vowels = new HashSet<>();
     static {
+        Vowels.add('A');
+        Vowels.add('E');
+        Vowels.add('I');
+        Vowels.add('O');
+        Vowels.add('U');
         Vowels.add('a');
         Vowels.add('e');
         Vowels.add('i');

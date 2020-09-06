@@ -12,9 +12,9 @@ class ReverseVowelsTest {
 
     @Test
     void reverseVowels_onValidParams_returns_expected_result() {
-        assertEquals(ReverseVowels.reverseVowels("awe"), "ewa");
-        assertEquals(ReverseVowels.reverseVowels("cove island"), "cavi eslond");
-        assertEquals(ReverseVowels.reverseVowels("cove island er"), "ceva islend or");
-        assertEquals(ReverseVowels.reverseVowels("aA"), "Aa");
+        assertEquals("ewa", ReverseVowels.reverseVowels("awe"));
+        assertEquals("cavi eslond", ReverseVowels.reverseVowels("cove island"));
+        assertEquals("ceva islend or", ReverseVowels.reverseVowels("cove island er"));
+        assertEquals("Aa", ReverseVowels.reverseVowels("aA"));
     }
 }
