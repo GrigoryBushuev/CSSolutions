@@ -3,15 +3,10 @@ package Recursion;
 public class GCD {
 
     private static int getGcd(int a, int b){
-        if (a == b) {
+        if (b == 0) {
             return a;
         }
-        if (b > a) {
-            return getGcd(a, b - a);
-        }
-        else {
-            return getGcd(a - b, b);
-        }
+        return getGcd(b, a % b);
     }
 
     public static void main(String[] args) {
