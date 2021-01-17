@@ -57,7 +57,7 @@ public class TowersOfHanoi {
         var auxTower = new Peg("aux");
         var destTower = new Peg("dest");
 
-        final int height = 3;
+        final int height = 7;
         for (var i = height - 1; i >= 0;  i--) {
             startTower.peg.push(i);
         }
