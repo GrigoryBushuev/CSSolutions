@@ -37,6 +37,28 @@ public class BST<Key extends Comparable<Key>, Value>
         }
     }
 
+    public List<TreeNode> getPreOrderNodes() {
+        var result = new ArrayList<TreeNode>();
+        if (this.root == null) {
+            return result;
+        }
+        var stack = new Stack<TreeNode>();
+        stack.push(this.root);
+        while (!stack.empty()) {
+            var current = stack.pop();
+            result.add(current);
+            var rightNode = current.getRight();
+            if (rightNode != null) {
+                stack.push(rightNode);
+            }
+            var leftNode = current.getLeft();
+            if (leftNode != null) {
+                stack.push(leftNode);
+            }
+        }
+        return result;
+    }
+
     public List<TreeNode> getLevelOrderNodes() {
         var result = new ArrayList<TreeNode>();
         if (this.root == null) {
