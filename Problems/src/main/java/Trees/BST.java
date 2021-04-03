@@ -2,8 +2,17 @@ package Trees;
 
 import java.util.*;
 
+/*
+* BST with non-recursive operations
+*/
 public class BST<Key extends Comparable<Key>, Value>
 {
+    public enum TraverseOrder {
+        PreOrder,
+        InOrder,
+        PostOrder
+    }
+
     private TreeNode root;
 
     public void insert(TreeNode nodeToInsert) {
@@ -37,16 +46,10 @@ public class BST<Key extends Comparable<Key>, Value>
         }
     }
 
-    public List<TreeNode> getPreOrderNodes() {
-        var result = new ArrayList<TreeNode>();
-        if (this.root == null) {
-            return result;
-        }
-        var stack = new Stack<TreeNode>();
-        stack.push(this.root);
+    private void PreOrderTraversal(List treeNodes, Stack<TreeNode> stack) {
         while (!stack.empty()) {
             var current = stack.pop();
-            result.add(current);
+            treeNodes.add(current);
             var rightNode = current.getRight();
             if (rightNode != null) {
                 stack.push(rightNode);
@@ -55,6 +58,42 @@ public class BST<Key extends Comparable<Key>, Value>
             if (leftNode != null) {
                 stack.push(leftNode);
             }
+        }
+    }
+
+    private void InOrderTraversal(List treeNodes, Stack<TreeNode> stack) {
+        while (!stack.empty()) {
+            var current = stack.peek();
+            var rightNode = current.getRight();
+            if (rightNode != null) {
+                stack.push(rightNode);
+            }
+            var leftNode = current.getLeft();
+            if (leftNode != null) {
+                stack.push(leftNode);
+            } else {
+                stack.pop();
+                treeNodes.add(current);
+            }
+        }
+    }
+
+    public List<TreeNode> getNodes(TraverseOrder traverseOrder) {
+        var result = new ArrayList<TreeNode>();
+        if (this.root == null) {
+            return result;
+        }
+        var stack = new Stack<TreeNode>();
+        stack.push(this.root);
+        switch (traverseOrder) {
+            case InOrder:
+                InOrderTraversal(result, stack);
+                break;
+            case PreOrder:
+                PreOrderTraversal(result, stack);
+                break;
+            case PostOrder:
+                break;
         }
         return result;
     }
