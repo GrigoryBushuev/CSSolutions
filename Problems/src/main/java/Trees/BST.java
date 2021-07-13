@@ -119,4 +119,21 @@ public class BST<Key extends Comparable<Key>, Value>
         }
         return result;
     }
+
+    public boolean isValidBST(TreeNode root) {
+        if (root.getLeft() == null && root.getRight() == null) {
+            return true;
+        }
+        return isValidBSTNode(root.getLeft(), Long.MIN_VALUE, root.getKey()) && isValidBSTNode(root.getRight(), root.getKey(), Long.MAX_VALUE);
+    }
+
+    private boolean isValidBSTNode(TreeNode root, Comparable min, Comparable max) {
+        if (root == null) {
+            return true;
+        }
+        if (!(root.getKey().compareTo(max) < 0 && root.getKey().compareTo(min) > 0 && (root.getLeft() == null || root.getLeft().getKey().compareTo(root.getKey()) < 0) &&  (root.getRight() == null || root.getRight().getKey().compareTo(root.getKey()) > 0))) {
+            return false;
+        }
+        return isValidBSTNode(root.getLeft(), min, root.getKey()) && isValidBSTNode(root.getRight(), root.getKey(), max);
+    }
 }
