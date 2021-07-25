@@ -1,8 +1,10 @@
 package Trees;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.setRemoveAssertJRelatedElementsFromStackTrace;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BSTTest {
@@ -68,5 +70,15 @@ public class BSTTest {
                 .isNotEmpty()
                 .hasSize(9)
                 .containsExactly(this.leftNode2, this.leftNode3, this.leftNode4, this.leftNode1, this.rootNode, this.rightNode1, this.rightNode3, this.rightNode4, this.rightNode2);
+    }
+
+    @Test
+    public void isValidBST_returnsTrue() {
+        Assert.assertTrue(this.sut.isValidBST(this.sut.getRoot()));
+    }
+
+    @Test
+    public void isValidBSTInorderIterative_returnsTrue() {
+        Assert.assertTrue(this.sut.isValidBSTInorderIterative(this.sut.getRoot()));
     }
 }

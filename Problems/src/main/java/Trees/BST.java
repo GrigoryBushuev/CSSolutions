@@ -15,6 +15,10 @@ public class BST<Key extends Comparable<Key>, Value>
 
     private TreeNode root;
 
+    public TreeNode getRoot() {
+        return this.root;
+    }
+
     public void insert(TreeNode nodeToInsert) {
         if (nodeToInsert == null) {
             throw new IllegalArgumentException("nodeToInsert parameter is null");
@@ -124,16 +128,36 @@ public class BST<Key extends Comparable<Key>, Value>
         if (root.getLeft() == null && root.getRight() == null) {
             return true;
         }
-        return isValidBSTNode(root.getLeft(), Long.MIN_VALUE, root.getKey()) && isValidBSTNode(root.getRight(), root.getKey(), Long.MAX_VALUE);
+        return isValidBSTNode(root.getLeft(), null, root.getKey()) && isValidBSTNode(root.getRight(), root.getKey(), null);
     }
 
-    private boolean isValidBSTNode(TreeNode root, Comparable min, Comparable max) {
+    private static boolean isValidBSTNode(TreeNode root, Comparable min, Comparable max) {
         if (root == null) {
             return true;
         }
-        if (!(root.getKey().compareTo(max) < 0 && root.getKey().compareTo(min) > 0 && (root.getLeft() == null || root.getLeft().getKey().compareTo(root.getKey()) < 0) &&  (root.getRight() == null || root.getRight().getKey().compareTo(root.getKey()) > 0))) {
+        if (!((max == null || root.getKey().compareTo(max) < 0) && (min == null || root.getKey().compareTo(min) > 0)
+                && (root.getLeft() == null || root.getLeft().getKey().compareTo(root.getKey()) < 0)
+                &&  (root.getRight() == null || root.getRight().getKey().compareTo(root.getKey()) > 0))) {
             return false;
         }
         return isValidBSTNode(root.getLeft(), min, root.getKey()) && isValidBSTNode(root.getRight(), root.getKey(), max);
+    }
+
+    public static boolean isValidBSTInorderIterative(TreeNode root) {
+        var stack = new ArrayDeque<TreeNode<Integer, String>>();
+        Integer prevKey = null;
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.getLeft();
+            }
+            root = stack.pop();
+            if (prevKey != null && root.getKey().compareTo(prevKey) <= 0) {
+                return false;
+            }
+            prevKey = (Integer) root.getKey();
+            root = root.getRight();
+        }
+        return true;
     }
 }
