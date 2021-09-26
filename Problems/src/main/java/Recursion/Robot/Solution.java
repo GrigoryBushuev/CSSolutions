@@ -1,5 +1,7 @@
 package Recursion.Robot;
 
+import Recursion.Robot.Robot;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -59,7 +61,7 @@ public class Solution {
             direction = (direction + 1) % 4;
         }
         robot.turnLeft();
+        robot.turnLeft();
         robot.move();
     }
 }
-
