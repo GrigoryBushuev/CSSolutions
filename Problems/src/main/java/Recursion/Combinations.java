@@ -1,26 +1,23 @@
 package Recursion;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Combinations {
     public List<List<Integer>> combine(int n, int k) {
-        var result = new ArrayList<List<Integer>>();
-        getCombinations(n, k, 1, 1, new ArrayList<Integer>(), result);
+        var result = new LinkedList<List<Integer>>();
+        getCombinations(n, k, 1, new LinkedList<Integer>(), result);
         return result;
     }
 
-    private static void getCombinations(int n, int k, int currentIndex, int startIndex, ArrayList<Integer> current, ArrayList<List<Integer>> result) {
-        if (currentIndex == k + 1) {
-            result.add(current);
+    private static void getCombinations(int n, int k, int startIndex, LinkedList<Integer> current, LinkedList<List<Integer>> result) {
+        if (current.size() == k) {
+            result.add(new LinkedList(current));
             return;
         }
         for (var i = startIndex; i <=  n; i++) {
-            var newResult = new ArrayList<Integer>();
-            newResult.addAll(current);
-            newResult.add(i);
-            getCombinations(n, k, currentIndex + 1, i + 1, newResult, result);
+            current.add(i);
+            getCombinations(n, k, i + 1, current, result);
+            current.removeLast();
         }
     }
-
 }
