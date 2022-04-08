@@ -40,4 +40,15 @@ public class BitManipulationTest {
         var result = sut.reverseBitsWithoutIterations(43261596);
         Assert.assertEquals(964176192, result);
     }
+
+    @Test
+    public void isPowerOf2Test() {
+        var sut = new BitManipulation();
+        var result = sut.isPowerOf2(8);
+        Assert.assertTrue(result);
+
+        result = sut.isPowerOf2(7);
+        Assert.assertFalse(result);
+
+    }
 }

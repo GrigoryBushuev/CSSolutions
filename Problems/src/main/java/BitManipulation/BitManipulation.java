@@ -3,6 +3,15 @@ import Math.*;
 
 
 public class BitManipulation {
+
+	public static boolean isPowerOf2(int n) {
+		/*
+		* Numbers in power of 2 in binary have always a single bit set (e.g. 2 - 10, 4 - 100, 8 - 1000)
+		* To determine if the only single bit set we create the mask that contains 1s only and compare it to 0. E.g. 8 - 1000, (8 - 1) - 0111, 1000 & 0111 == 0
+		* */
+		return (n > 0) && ((n & (n - 1)) == 0);
+	}
+
 	public static String toBinaryString(int n) {
 		var buf = new char[32];
 		for (var i = 31; i >= 0; i--) {
@@ -13,10 +22,6 @@ public class BitManipulation {
 	}
 
 	public static long parseLong(String binaryString, int radix) throws NumberFormatException {
-		//null check
-		//length check
-
-		//return Long.parseLong(binaryString, 2);
 		long result = 0;
 		var len = binaryString.length();
 		var exponent = 0;
