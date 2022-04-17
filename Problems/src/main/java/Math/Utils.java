@@ -64,10 +64,8 @@ public class Utils {
     private List<Integer> getMins(List<String> times) {
         var result = new ArrayList<Integer>();
         for (var time : times) {
-            var hhStr = time.substring(0, 2);
-            var hh = (hhStr.charAt(0) - '0') * 10 + (hhStr.charAt(1) - '0');
-            var mmStr = time.substring(3, 5);
-            var mm = (mmStr.charAt(0) - '0') * 10 + (mmStr.charAt(1) - '0');
+            var hh = (time.charAt(0) - '0') * 10 + (time.charAt(1) - '0');
+            var mm = (time.charAt(3) - '0') * 10 + (time.charAt(4) - '0');
             result.add(hh * 60 + mm);
         }
         return result;
