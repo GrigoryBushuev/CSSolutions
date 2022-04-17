@@ -2,6 +2,8 @@ package Math;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 public class UtilsTest {
     @Test
     public void binaryExponentiationTest(){
@@ -32,5 +34,30 @@ public class UtilsTest {
 
         result = sut.addStrings("9", "9");
         Assert.assertEquals("18", result);
+    }
+
+    @Test
+    public void getMinTimeDifference() {
+        var sut = new Utils();
+        var param = new ArrayList<String>();
+        param.add("00:03");
+        param.add("23:59");
+        param.add("12:03");
+        var result = sut.getMinTimeDifference(param);
+        Assert.assertEquals(4, result);
+
+        param.clear();
+        param.add("00:01");
+        param.add("23:59");
+        param.add("23:56");
+        result = sut.getMinTimeDifference(param);
+        Assert.assertEquals(2, result);
+
+        param.clear();
+        param.add("01:01");
+        param.add("02:01");
+        param.add("03:00");
+        result = sut.getMinTimeDifference(param);
+        Assert.assertEquals(59, result);
     }
 }

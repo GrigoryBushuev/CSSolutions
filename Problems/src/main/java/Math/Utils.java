@@ -1,5 +1,10 @@
 package Math;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Utils {
 
     /*2^17 = 2^8 * 2^8 * 2^1
@@ -54,5 +59,31 @@ public class Utils {
             sb.append(result);
         }
         return sb.reverse().toString();
+    }
+
+    private List<Integer> getMins(List<String> times) {
+        var result = new ArrayList<Integer>();
+        for (var time : times) {
+            var hhStr = time.substring(0, 2);
+            var hh = (hhStr.charAt(0) - '0') * 10 + (hhStr.charAt(1) - '0');
+            var mmStr = time.substring(3, 5);
+            var mm = (mmStr.charAt(0) - '0') * 10 + (mmStr.charAt(1) - '0');
+            result.add(hh * 60 + mm);
+        }
+        return result;
+    }
+
+    public int getMinTimeDifference(List<String> times) {
+        var mins = getMins(times);
+        Collections.sort(mins);
+        var prev = mins.get(0);
+        var result = Integer.MAX_VALUE;
+        for (var i = 1; i < mins.size(); i++) {
+            var current = mins.get(i);
+            result = Math.min(result, Math.abs(current - prev));
+            prev = current;
+        }
+        result = Math.min(result, mins.get(0) + 1440 - prev);
+        return result;
     }
 }
