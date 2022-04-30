@@ -1,9 +1,10 @@
 package Math;
 
-import java.lang.reflect.Array;
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class Utils {
 
@@ -83,5 +84,53 @@ public class Utils {
         }
         result = Math.min(result, mins.get(0) + 1440 - prev);
         return result;
+    }
+
+    public String changeBase(String numAsString, int fromBase, int toBase) {
+        if (fromBase == toBase) {
+            return numAsString;
+        }
+        if (numAsString == null) {
+            throw new NullPointerException();
+        }
+        if (fromBase < 2 || toBase < 2) {
+            throw new IllegalArgumentException();
+        }
+        String sign = "";
+        int startIndex = 0;
+        if (numAsString.charAt(0) == '-') {
+            sign = "-";
+            startIndex = 1;
+        }
+        var decNumber = convertToDecimal(numAsString, fromBase, startIndex);
+        return sign + convertDecToBase(decNumber, toBase);
+    }
+
+    private static int convertToDecimal(String numAsString, int fromBase, int startindex) {
+        numAsString = numAsString.toUpperCase();
+        var result = 0;
+        var decimalNumber = 0;
+        var j = numAsString.length() - 1;
+        for (int i = startindex; i < numAsString.length(); i++, j--) {
+            var currentChar = numAsString.charAt(i);
+            if (Character.isDigit(currentChar)) {
+                decimalNumber = currentChar - '0';
+            } else {
+                decimalNumber = currentChar - 'A' + 10;
+            }
+            result += decimalNumber * binaryExponentiation(fromBase, j);
+        }
+        return result;
+    }
+
+    public static String convertDecToBase(int decimalNumber, int base) {
+        var sb = new StringBuilder();
+        while (decimalNumber > 0) {
+            var remainder = decimalNumber % base;
+            char digit = (char) (remainder < 10 ? (char)remainder + '0' : (char)(remainder - 10) + 'A');
+            sb.append(digit);
+            decimalNumber /= base;
+        }
+        return sb.reverse().toString();
     }
 }

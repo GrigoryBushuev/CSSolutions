@@ -60,4 +60,18 @@ public class UtilsTest {
         result = sut.getMinTimeDifference(param);
         Assert.assertEquals(59, result);
     }
+
+    @Test
+    public void changeBaseTest() {
+        var sut = new Utils();
+        var result = sut.changeBase("1A", 16, 2);
+        Assert.assertEquals("11010", result);
+    }
+
+    @Test
+    public void convertDecToBaseTest() {
+        var sut = new Utils();
+        var result = sut.convertDecToBase(10, 16);
+        Assert.assertEquals("A", result);
+    }
 }
