@@ -2,6 +2,8 @@ package Sorting;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SortTest {
@@ -38,5 +40,73 @@ public class SortTest {
                 //.hasSize(9)
                 //.containsExactly(1, 2, 3, 4, 5, 5);
                 .containsExactly(-96,-91,-90,-87,-85,-84,-84,-78,-74,-74,-72,-71,-69,-68,-63,-58,-56,-55,-46,-46,-45,-44,-44,-39,-30,-28,-28,-25,-24,-24,-22,-20,-20,-13,-13,-12,-11,-10,-9,-8,-6,-5,-3,-2,-2,2,2,8,10,10,11,12,13,14,16,21,23,25,25,26,26,28,29,29,30,34,35,35,37,45,47,48,50,50,51,52,54,55,56,57,57,63,64,65,65,72,73,77,80,85,86,86,91,92,92,93,95,98);
+    }
+
+    @Test
+    public void countingSort_returnsExpectedResult() {
+        var sut = new CountingSort();
+        int[] inputParams = { 0,1,2,1,2,2,2,1,0 };
+        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0,0,1,1,1,2,2,2,2);
+
+        inputParams = new int[]{ 2, 0, 2, 1, 1, 0 };
+        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0, 0, 1, 1, 2, 2);
+
+        inputParams = new int[]{ 2, 0, 1 };
+        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0, 1, 2);
+
+        inputParams = new int[]{ 0, 0 };
+        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0, 0);
+
+        inputParams = new int[]{ 0 };
+        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0 );
+    }
+
+    @Test
+    public void threePartitionSort_returnsExpectedResult() {
+        var sut = new ThreePartitionSort();
+        int[] inputParams = { 0,1,2,1,2,2,2,1,0 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0,0,1,1,1,2,2,2,2);
+
+        inputParams = new int[]{ 2, 0, 2, 1, 1, 0 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0, 0, 1, 1, 2, 2);
+
+        inputParams = new int[]{ 2, 0, 1 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0, 1, 2);
+
+        inputParams = new int[]{ 0, 0 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0, 0);
+
+        inputParams = new int[]{ 0 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(0 );
     }
 }
