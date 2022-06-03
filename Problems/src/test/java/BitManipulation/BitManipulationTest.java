@@ -49,6 +49,16 @@ public class BitManipulationTest {
 
         result = sut.isPowerOf2(7);
         Assert.assertFalse(result);
+    }
 
+    @Test
+    public void isPowerOfFourTest() {
+        var sut = new BitManipulation();
+        var result = sut.isPowerOfFour(16);
+        Assert.assertTrue(result);
+        result = sut.isPowerOfFour(8);
+        Assert.assertFalse(false);
+        result = sut.isPowerOfFour(17);
+        Assert.assertFalse(false);
     }
 }

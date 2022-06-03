@@ -31,7 +31,6 @@ public class ThreePartitionSort {
             if (nums[i] == 0) {
                 swap(nums, i, left);
                 left++;
-                continue;
             }
             if (nums[i] == 2) {
                 swap(nums, i, right);

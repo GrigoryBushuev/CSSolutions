@@ -8,8 +8,18 @@ public class BitManipulation {
 		/*
 		* Numbers in power of 2 in binary have always a single bit set (e.g. 2 - 10, 4 - 100, 8 - 1000)
 		* To determine if the only single bit set we create the mask that contains 1s only and compare it to 0. E.g. 8 - 1000, (8 - 1) - 0111, 1000 & 0111 == 0
+		*
+		* Option 1*/
+		//return (n > 0) && ((n & (n - 1)) == 0);
+
+		/*Option 2 Turn off the right most bit off
+		* Numbers in power of 2 in binary have always a single bit set (e.g. 2 - 10, 4 - 100, 8 - 1000)
+		* -n = ~n + 1;
+		*
+		*
+		*
 		* */
-		return (n > 0) && ((n & (n - 1)) == 0);
+		return (n & (-n)) == n;
 	}
 
 	public static String toBinaryString(int n) {
@@ -81,5 +91,13 @@ public class BitManipulation {
 	public static int swapQuaters(int n) {
 		return ((n & 0xF0F0F0F0) >>> 4) | ((n & 0x0F0F0F0F) << 4);
 	}
+
+	public static boolean isPowerOfFour(int num) {
+		if (num < 0) {
+			return false;
+		}
+		return ((num & (num - 1)) == 0) && ((num & 0x55555555) == num);
+	}
+
 }
 

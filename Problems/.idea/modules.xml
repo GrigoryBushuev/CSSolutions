@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../../Program Files/javafx-sdk-14.0.1/lib/lib.iml" filepath="$PROJECT_DIR$/../../../Program Files/javafx-sdk-14.0.1/lib/lib.iml" />
+      <module fileurl="file://$USER_HOME$/Program Files/javafx-sdk-14.0.1/lib/lib.iml" filepath="$USER_HOME$/Program Files/javafx-sdk-14.0.1/lib/lib.iml" />
     </modules>
   </component>
 </project>
