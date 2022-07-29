@@ -46,34 +46,40 @@ public class SortTest {
     public void countingSort_returnsExpectedResult() {
         var sut = new CountingSort();
         int[] inputParams = { 0,1,2,1,2,2,2,1,0 };
-        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        sut.sort(inputParams);
         assertThat(inputParams)
                 .isNotEmpty()
                 .containsExactly(0,0,1,1,1,2,2,2,2);
 
         inputParams = new int[]{ 2, 0, 2, 1, 1, 0 };
-        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        sut.sort(inputParams);
         assertThat(inputParams)
                 .isNotEmpty()
                 .containsExactly(0, 0, 1, 1, 2, 2);
 
         inputParams = new int[]{ 2, 0, 1 };
-        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        sut.sort(inputParams);
         assertThat(inputParams)
                 .isNotEmpty()
                 .containsExactly(0, 1, 2);
 
         inputParams = new int[]{ 0, 0 };
-        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        sut.sort(inputParams);
         assertThat(inputParams)
                 .isNotEmpty()
                 .containsExactly(0, 0);
 
         inputParams = new int[]{ 0 };
-        sut.sort(Optional.empty(), Optional.empty(), inputParams);
+        sut.sort(inputParams);
         assertThat(inputParams)
                 .isNotEmpty()
                 .containsExactly(0 );
+
+        inputParams = new int[]{ 6, 7, 0, 9, 5, 1, 7, 0, -3, -1 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(-3, -1, 0, 0, 1, 5, 6, 7, 7, 9);
     }
 
     @Test
@@ -108,5 +114,15 @@ public class SortTest {
         assertThat(inputParams)
                 .isNotEmpty()
                 .containsExactly(0 );
+    }
+
+    @Test
+    public void radixSort_returnsExpectedResult() {
+        var sut = new RadixSort();
+        int[] inputParams = { 329, -1, 457, -100, 657, 839, 436, 720, -55, -32, 355 };
+        sut.sort(inputParams);
+        assertThat(inputParams)
+                .isNotEmpty()
+                .containsExactly(-100, -55, -32, -1, 329, 355, 436, 457, 657, 720, 839 );
     }
 }
