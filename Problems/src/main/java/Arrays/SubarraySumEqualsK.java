@@ -29,9 +29,9 @@ import static java.lang.Integer.valueOf;
 //        -1000 <= nums[i] <= 1000
 //        -107 <= k <= 107
 public class SubarraySumEqualsK {
-    public int subarraySum(int[] nums, int k) {
+    public int subarraySum(int[] nums, int target) {
         if (nums.length == 1) {
-            return nums[0] == k ? 1 : 0;
+            return nums[0] == target ? 1 : 0;
         }
         var result = 0;
         var prefixSum = new HashMap<Integer, Integer>();
@@ -39,14 +39,9 @@ public class SubarraySumEqualsK {
         var iSum = 0;
         for (var i = 0; i < nums.length; i++) {
             iSum += nums[i];
-            prefixSum.compute(iSum, (key, val) -> val == null ? 1 : val + 1);
-            var cnt = prefixSum.get(iSum - k);
-            if (cnt != null) {
-                if (k == 0) {
-                    cnt--;
-                }
-                result += cnt;
-            }
+            var cnt = prefixSum.getOrDefault(iSum - target, 0);
+            result += cnt;
+            prefixSum.put(iSum, prefixSum.getOrDefault(iSum, 0) + 1);
         }
         return result;
     }
