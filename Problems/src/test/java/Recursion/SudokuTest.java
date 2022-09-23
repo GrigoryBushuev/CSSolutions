@@ -1,4 +1,4 @@
-package Recursion.BackTracking;
+package Recursion;
 import Recursion.Sudoku;
 import org.junit.Assert;
 import org.junit.Test;

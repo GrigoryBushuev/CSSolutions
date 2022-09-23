@@ -1,4 +1,4 @@
-package Recursion.BackTracking;
+package Recursion;
 import Recursion.NQueens;
 import org.junit.Assert;
 import org.junit.Test;

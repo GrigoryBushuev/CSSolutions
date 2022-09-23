@@ -1,10 +1,8 @@
-package Recursion.BackTracking;
-import Recursion.Combinations;
-import org.junit.Assert;
+package Recursion.Combinations;
+import Recursion.Combinations.Combinations;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.sql.Array;
 import java.util.*;
 
 public class CombinationsTest {
