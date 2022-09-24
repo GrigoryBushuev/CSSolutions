@@ -1,9 +1,11 @@
 package Recursion.Combinations;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class GeneralCombinations {
-    public ArrayList<ArrayList<Character>> combine(char[] arr) {
+    public List<List<Character>> combine(char[] arr) {
         return combine(new ArrayList<>(), arr, 0);
     }
 
@@ -13,17 +15,17 @@ public class GeneralCombinations {
     * Run recursion for the included node
     * Collect the result for all variations
     */
-    private ArrayList<ArrayList<Character>> combine(ArrayList<Character> current, char[] arr, int index) {
+    private List<List<Character>> combine(List<Character> current, char[] arr, int index) {
         if (index == arr.length) {
-            return new ArrayList<>() {{
+            return new LinkedList<>() {{
                 add(current);
             }};
         }
         var excludedResult = combine(current, arr, index + 1);
-        var toAddNode = new ArrayList<>(current);
+        var toAddNode = new LinkedList<>(current);
         toAddNode.add(arr[index]);
         var includeResult = combine(toAddNode, arr, index + 1);
-        var result = new ArrayList<ArrayList<Character>>();
+        LinkedList<List<Character>> result = new LinkedList<>();
         result.addAll(excludedResult);
         result.addAll(includeResult);
         return result;
