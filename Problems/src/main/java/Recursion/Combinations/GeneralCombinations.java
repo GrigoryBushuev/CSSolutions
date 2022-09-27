@@ -6,7 +6,6 @@ import java.util.List;
 
 public class GeneralCombinations {
     public List<List<Character>> combine(char[] arr) {
-        //return combine(new LinkedList<>(), arr, 0);
         return getCombined(arr, 0);
     }
 
