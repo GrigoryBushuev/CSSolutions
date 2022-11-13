@@ -1,2 +1,4 @@
-package Arrays;public class NextPermutation {
+package Arrays;
+
+public class NextPermutation {
 }
