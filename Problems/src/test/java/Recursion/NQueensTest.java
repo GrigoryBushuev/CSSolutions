@@ -1,17 +1,60 @@
 package Recursion;
-import Recursion.NQueens;
-import org.junit.Assert;
+
+import Recursion.Combinations.NQueens;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NQueensTest {
-
     @Test
-    public void totalNQueensTest() {
+    public void nQueensTest() {
         var sut = new NQueens();
-        //assertEquals(2, sut.totalNQueens(4));
-        assertEquals(10, sut.totalNQueens(5));
+        var result = sut.solveNQueens(4);
+        //[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+        assertThat(result)
+                .isNotEmpty()
+                .hasSize(2)
+                .contains(
+                        new ArrayList<>() {{ add(".Q.."); add("...Q"); add("Q..."); add("..Q.");}},
+                        new ArrayList<>() {{ add("..Q."); add("Q..."); add("...Q"); add(".Q..");}}
+                );
 
+        result = sut.solveNQueens(1);
+        //[["Q"]]
+        assertThat(result)
+                .isNotEmpty()
+                .hasSize(1)
+                .contains(
+                        new ArrayList<>() {{ add("Q"); }}
+                );
+
+        result = sut.solveNQueens(5);
+        //[["Q....","..Q..","....Q",".Q...","...Q."],
+        // ["Q....","...Q.",".Q...","....Q","..Q.."],
+        // [".Q...","...Q.","Q....","..Q..","....Q"],
+        // [".Q...","....Q","..Q..","Q....","...Q."],
+        // ["..Q..","Q....","...Q.",".Q...","....Q"],
+        // ["..Q..","....Q",".Q...","...Q.","Q...."],
+        // ["...Q.","Q....","..Q..","....Q",".Q..."],
+        // ["...Q.",".Q...","....Q","..Q..","Q...."],
+        // ["....Q",".Q...","...Q.","Q....","..Q.."],
+        // ["....Q","..Q..","Q....","...Q.",".Q..."]]
+        assertThat(result)
+                .isNotEmpty()
+                .hasSize(10)
+                .contains(
+                        new ArrayList<>() {{ add("Q...."); add("..Q.."); add("....Q"); add(".Q..."); add("...Q."); }},
+                        new ArrayList<>() {{ add("Q...."); add("...Q."); add(".Q..."); add("....Q"); add("..Q.."); }},
+                        new ArrayList<>() {{ add(".Q..."); add("...Q."); add("Q...."); add("..Q.."); add("....Q"); }},
+                        new ArrayList<>() {{ add(".Q..."); add("....Q"); add("..Q.."); add("Q...."); add("...Q."); }},
+                        new ArrayList<>() {{ add("..Q.."); add("Q...."); add("...Q."); add(".Q..."); add("....Q"); }},
+                        new ArrayList<>() {{ add("..Q.."); add("....Q"); add(".Q..."); add("...Q."); add("Q...."); }},
+                        new ArrayList<>() {{ add("...Q."); add("Q...."); add("..Q.."); add("....Q"); add(".Q..."); }},
+                        new ArrayList<>() {{ add("...Q."); add(".Q..."); add("....Q"); add("..Q.."); add("Q...."); }},
+                        new ArrayList<>() {{ add("....Q"); add(".Q..."); add("...Q."); add("Q...."); add("..Q.."); }},
+                        new ArrayList<>() {{ add("....Q"); add("..Q.."); add("Q...."); add("...Q."); add(".Q..."); }}
+                );
     }
 }
