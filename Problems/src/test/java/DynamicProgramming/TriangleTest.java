@@ -17,12 +17,16 @@ class TriangleTest {
             add(new LinkedList<>() {{ add(5); add(6); add(7); }});
             add(new LinkedList<>() {{ add(4); add(1); add(8); add(3); }});
         }};
-        Assert.assertEquals(11, sut.minimumTotal(triangle1));
+        Assert.assertEquals(11, sut.getMinimumTotalTopDown(triangle1));
+        Assert.assertEquals(11, sut.getMinimumTotalBottomUp(triangle1));
+        Assert.assertEquals(11, sut.getMinimumTotalBottomUpInPlace(triangle1));
         var triangle2 = new LinkedList<List<Integer>>()
         {{
             add(new LinkedList<>() {{ add(-10); }});
         }};
-        Assert.assertEquals(-10, sut.minimumTotal(triangle2));
+        Assert.assertEquals(-10, sut.getMinimumTotalTopDown(triangle2));
+        Assert.assertEquals(-10, sut.getMinimumTotalBottomUp(triangle2));
+        Assert.assertEquals(-10, sut.getMinimumTotalBottomUpInPlace(triangle2));
 
         //[
         //  [-1],
@@ -35,7 +39,9 @@ class TriangleTest {
             add(new LinkedList<>() {{ add(2); add(3); }});
             add(new LinkedList<>() {{ add(1); add(-1); add(-3); }});
         }};
-        Assert.assertEquals(-1, sut.minimumTotal(triangle3));
+        Assert.assertEquals(-1, sut.getMinimumTotalTopDown(triangle3));
+        Assert.assertEquals(-1, sut.getMinimumTotalBottomUp(triangle3));
+        Assert.assertEquals(-1, sut.getMinimumTotalBottomUpInPlace(triangle3));
 
         /*
         * [
@@ -69,6 +75,8 @@ class TriangleTest {
             add(new LinkedList<>() {{ add(1); add(1); add(-6); add(1); add(-2); add(-4); add(4); add(-2); add(6); add(-6); add(0); add(6); }});
             add(new LinkedList<>() {{ add(-3); add(-3); add(-6); add(-2); add(-6); add(-2); add(7); add(-9); add(-5); add(-7); add(-5); add(5); add(1); }});
         }};
-        Assert.assertEquals(-63, sut.minimumTotal(triangle4));
+        Assert.assertEquals(-63, sut.getMinimumTotalTopDown(triangle4));
+        Assert.assertEquals(-63, sut.getMinimumTotalBottomUp(triangle4));
+        Assert.assertEquals(-63, sut.getMinimumTotalBottomUpInPlace(triangle4));
     }
 }

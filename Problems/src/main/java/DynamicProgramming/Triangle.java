@@ -31,16 +31,16 @@ triangle[i].length == triangle[i - 1].length + 1
 
 Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?*/
 public class Triangle {
-    public int minimumTotal(List<List<Integer>> triangle) {
+    public static int getMinimumTotalTopDown(List<List<Integer>> triangle) {
         if (triangle.size() == 1) {
             return triangle.get(0).get(0);
         }
         var bottomIndex = triangle.size();
         var cache = new Integer[bottomIndex][triangle.get(bottomIndex - 1).size()];
-        return getMinimalTotalBottomUp(triangle);
+        return getMinimumTotalTopDown(triangle, 0, 0, cache);
     }
 
-    private static int getMinimalTotalBottomUpInPlace(List<List<Integer>> trianlge) {
+    public static int getMinimumTotalBottomUpInPlace(List<List<Integer>> trianlge) {
         for (var row = 1; row < trianlge.size(); row++) {
             var currentRowSize = trianlge.get(row).size();
             for (var clmn = 0; clmn < currentRowSize; clmn++) {
@@ -60,7 +60,7 @@ public class Triangle {
         return Collections.min(trianlge.get(trianlge.size() - 1));
     }
 
-    private static int getMinimalTotalBottomUp(List<List<Integer>> triangle) {
+    public static int getMinimumTotalBottomUp(List<List<Integer>> triangle) {
         var cache = new int[triangle.size()];
         Arrays.fill(cache, Integer.MAX_VALUE);
         cache[0] = triangle.get(0).get(0);
