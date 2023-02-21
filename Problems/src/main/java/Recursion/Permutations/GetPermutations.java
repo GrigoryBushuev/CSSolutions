@@ -22,7 +22,7 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 *
 * 1, 2, 3, i = 0, res = [1, 2, 3]
  */
-public class Permutations<T> {
+public class GetPermutations<T> {
     private static <T> void Swap(T[] arr, int i, int j){
         T temp = arr[i];
         arr[i] = arr[j];
