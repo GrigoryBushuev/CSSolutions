@@ -15,11 +15,24 @@ Output:  105 114 123 132 141 150 204
 Input:  N = 4, Sum = 3
 Output:  1002 1011 1020 1101 1110 1200
          2001 2010 2100 3000
+
+Time complexity:
+    Branching factor: 10
+    Depth of recursion: N
+    Work to convert the list to integer: N
+    Time complexity: O(N * 10^N)
+
+Space complexity:
+    Depth of recursion: N
+    Space per frame: N
+    Branching factor: 10
+    Space complexity: O(N * 10^N)
+
 */
 public class NDigitSum {
     public static List<Integer> getNDigitSum(int n, int sum) {
         LinkedList<Integer> result = new LinkedList<>();
-        getNDigitSum(n, sum, 0, new ArrayList<Integer>(), result);
+        getNDigitSum(n, sum, 0, new ArrayList<>(), result);
         return result;
     }
 
