@@ -8,7 +8,7 @@ public class PermutationsTest {
     @Test
     public void getPermutations() {
         var sut = new Permutations();
-        var result = Permutations.getPermutations(new Integer[] { 1, 2, 3 });
+        var result = sut.getPermutations(new Integer[] { 1, 2, 3 });
         assertThat(result)
                 .isNotEmpty()
                 .hasSize(6)
