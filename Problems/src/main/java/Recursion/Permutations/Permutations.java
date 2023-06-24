@@ -47,7 +47,7 @@ public class Permutations {
 
     public static <T> LinkedList<T[]> getPermutations(T[] arr) {
         LinkedList<T[]> result = new LinkedList<>();
-        getPermutations(new ArrayList<>(Arrays.asList(arr)), new LinkedList<T>(), result);
+        getPermutations(new ArrayList<>(Arrays.asList(arr)), new LinkedList<>(), result);
         return result;
     }
 
