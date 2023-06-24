@@ -5,11 +5,13 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 /*
-* Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
-* Example:
+46. Permutations
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
+
+Example:
 Input: nums = [1,2,3]
 Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-*
+
 * Solution 1: Backtracking
 *   1. Start iterating from 0 to n
 *   2. Exclude an i-th element from the array (this is our new element in the result array) and call the permutation recursively.

@@ -1,7 +1,5 @@
 package Math;
 
-import java.util.HashSet;
-
 /*
 202. Happy Number
 
