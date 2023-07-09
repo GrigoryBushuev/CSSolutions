@@ -76,24 +76,37 @@ public class BSTArrays {
 
     public static List<List<Integer>> allBSTOrders(Node root) {
         List<List<Integer>> results = new ArrayList<>();
-        allBSTOrders(new HashSet<>(Arrays.asList(root)), new ArrayList<>(), results);
+        LinkedList<Integer> path = new LinkedList<>();
+        LinkedList<Node> opportunities = new LinkedList<>();
+        opportunities.add(root);
+        genenerateBSTs(path, opportunities, results);
         return results;
     }
-    private static void allBSTOrders(Set<Node> available, List<Integer> path, List<List<Integer>> results) {
-        if (available.isEmpty()) {
-            results.add(new ArrayList<>(path));
+
+    private static void genenerateBSTs(LinkedList<Integer> path, LinkedList<Node> opportunities, List<List<Integer>> result) {
+        if (opportunities.isEmpty()) {
+            result.add(new LinkedList<>(path));
             return;
         }
-        for (Node n : available.toArray(new Node[]{})) {
-            available.remove(n);
-            if (n.left != null) available.add(n.left);
-            if (n.right != null) available.add(n.right);
-            path.add(n.value);
-            allBSTOrders(available, path, results);
-            path.remove(path.size() - 1);
-            if (n.left != null) available.remove(n.left);
-            if (n.right != null) available.remove(n.right);
-            available.add(n);
+        LinkedList<Node> levelOpportunities = new LinkedList<>(opportunities);
+        for (Node opportunity : levelOpportunities) {
+            if (opportunity.left != null) {
+                opportunities.add(opportunity.left);
+            }
+            if (opportunity.right != null) {
+                opportunities.add(opportunity.right);
+            }
+            opportunities.removeFirst();
+            path.add(opportunity.value);
+            genenerateBSTs(path, opportunities, result);
+            path.removeLast();
+            if (opportunity.right != null) {
+                opportunities.removeLast();
+            }
+            if (opportunity.left != null) {
+                opportunities.removeLast();
+            }
+            opportunities.addLast(opportunity);
         }
     }
 }

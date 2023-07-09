@@ -37,7 +37,7 @@ Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 *
 *    1, 2, 3 i = 0, res = [1, 3, 2]
  */
-public class Permutations {
+public class AllPermutations {
 
     private static <T> void swap(T[] arr, int i, int j) {
         T temp = arr[i];

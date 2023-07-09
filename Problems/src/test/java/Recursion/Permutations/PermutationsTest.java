@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PermutationsTest {
     @Test
     public void getPermutations() {
-        var sut = new Permutations();
+        var sut = new AllPermutations();
         var result = sut.getPermutations(new Integer[] { 1, 2, 3 });
         assertThat(result)
                 .isNotEmpty()
