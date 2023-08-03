@@ -19,11 +19,11 @@ arrangements(3, {1‑>3, 3‑>1}) =
 public class SeatingArrangements {
     public List<List<Integer>> arrangements(int N, Map<Integer, Integer> pairs) {
         List<List<Integer>> result = new LinkedList<>();
-        generateArrangements(N, pairs, 1, new LinkedList<Integer>(), new HashSet<Integer>(), result);
+        generateArrangements(N, pairs, new LinkedList<>(), new HashSet<>(), result);
         return result;
     }
 
-    private static void generateArrangements(int totalStudents, Map<Integer, Integer> pairs, int index, LinkedList<Integer> path, Set<Integer> toSkip, List<List<Integer>> result) {
+    private static void generateArrangements(int totalStudents, Map<Integer, Integer> pairs, LinkedList<Integer> path, Set<Integer> toSkip, List<List<Integer>> result) {
         if (totalStudents == path.size()) {
             result.add(new LinkedList<>(path));
             return;
@@ -39,7 +39,7 @@ public class SeatingArrangements {
                 toSkip.add(pairIndex);
                 path.add(pairIndex);
             }
-            generateArrangements(totalStudents, pairs, i + 1, path, toSkip, result);
+            generateArrangements(totalStudents, pairs, path, toSkip, result);
             toSkip.remove(i);
             path.removeLast();
             if (pairIndex != null) {
