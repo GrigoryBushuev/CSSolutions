@@ -31,7 +31,7 @@ public class GeneratePalindrome {
         }
         String middleChar = "";
         TreeMap<Character, Integer> charCounts = new TreeMap<>();
-        int oddCount = 0;
+        int oddNumber = 0;
         for (var charCount : charMap.entrySet()) {
             if (charCount.getValue() % 2 != 0) {
                 middleChar = String.valueOf(charCount.getKey());
@@ -39,9 +39,9 @@ public class GeneratePalindrome {
                 if (middleCharCount > 0) {
                     charCounts.put(charCount.getKey(), middleCharCount);
                 }
-                oddCount++;
-                if (oddCount > 1) {
-                    return result;
+                oddNumber++;
+                if (oddNumber > 1) {
+                    return result;//can't create a palindrome
                 }
             } else {
                 charCounts.put(charCount.getKey(), charCount.getValue() / 2);
