@@ -1,8 +1,8 @@
-package Recursion;
+package Recursion.Subproblems;
 
 import java.util.*;
 
-public class TowersOfHanoi {
+public class TowersOfHanoiWithStack {
 
     private static class Move {
         private final int index;

@@ -1,5 +1,14 @@
-package Recursion;
+package Recursion.Subproblems;
 
+/*
+Write a function that computes the Greatest Common Divisor (GCD) of two
+numbers.
+
+Euclid’s Algorithm:
+gcd(a, b) = gcd(b, a % b)
+gcd(a, 0) = a
+For any a > b
+*/
 public class GCD {
 
     private static int getGcd(int a, int b){
