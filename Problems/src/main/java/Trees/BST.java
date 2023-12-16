@@ -162,4 +162,15 @@ public class BST<Key extends Comparable<Key>, Value>
         }
         return true;
     }
+
+    public TreeNode getMin() {
+        return getMin(this.root);
+    }
+
+    public TreeNode getMin(TreeNode treeNode) {
+        while (treeNode.getLeft() != null) {
+            treeNode = treeNode.getLeft();
+        }
+        return treeNode;
+    }
 }
