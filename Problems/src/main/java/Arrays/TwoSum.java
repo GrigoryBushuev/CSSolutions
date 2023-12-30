@@ -1,5 +1,4 @@
 package Arrays;
-
 import java.util.HashMap;
 
 /*
@@ -24,7 +23,7 @@ Output: [0,1]
 */
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        var valuesIndices = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> valuesIndices = new HashMap<>();
         for (var i = 0; i < nums.length; i++) {
             var expectedValue = target - nums[i];
             var value = valuesIndices.get(expectedValue);

@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15d2b053-8af9-4c5a-91ae-b2ee44daf351" name="Default Changelist" comment="" />
+    <list default="true" id="15d2b053-8af9-4c5a-91ae-b2ee44daf351" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Problems/src/main/java/LinkedLists/DuplicateNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problems/src/main/java/Math/HappyNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problems/src/main/java/Recursion/Permutations/NextPermutation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problems/src/test/java/LinkedLists/DuplicateNumberTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problems/src/test/java/Math/HappyNumberTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problems/src/test/java/Recursion/Permutations/NextPermutationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/src/main/java/DynamicProgramming/BestTimeToBuyAndSellStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/src/main/java/DynamicProgramming/BestTimeToBuyAndSellStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/src/main/java/Recursion/Permutations/NDigitSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/src/main/java/Recursion/Permutations/NDigitSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/src/main/java/Recursion/Permutations/Permutations.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/src/main/java/Recursion/Permutations/Permutations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Recursion/Combinations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Recursion/NQueens.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Recursion/Permutations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Sorting/CountingSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/target/classes/Sorting/CountingSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Sorting/ThreePartitionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/target/classes/Sorting/ThreePartitionSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Trees/BST$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/target/classes/Trees/BST$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Trees/BST$TraverseOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/target/classes/Trees/BST$TraverseOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/classes/Trees/BST.class" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/target/classes/Trees/BST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/test-classes/Recursion/BackTracking/CombinationsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/test-classes/Recursion/BackTracking/NQueensTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/test-classes/Recursion/BackTracking/RobotTest$RobotFake.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/test-classes/Recursion/BackTracking/RobotTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/test-classes/Recursion/BackTracking/SudokuTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problems/target/test-classes/Sorting/SortTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Problems/target/test-classes/Sorting/SortTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,30 +39,47 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1nUMUQjRjgcbRXu3yLD91TvD3sz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Problems" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gregory/IdeaProjects/CSSolutions/Problems&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="15d2b053-8af9-4c5a-91ae-b2ee44daf351" name="Default Changelist" comment="" />
+      <changelist id="" name="Default Changelist" comment="" />
       <created>1611440231228</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611440231228</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Problems/src/test/java/Trees/ConvertSortedListToBinarySearchTreeTest.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

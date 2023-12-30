@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Arrays;
 
 /*
+349. Intersection of Two Arrays
 Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
 
 Example 1:
@@ -26,7 +27,7 @@ public class Intersection {
             set.add(i);
         }
 
-        int[] temp = new int[set.size() < nums2.length ? set.size() : nums2.length];
+        int[] temp = new int[Math.min(set.size(), nums2.length)];
         int k = 0;
         for (int j : nums2) {
             if (set.contains(j)) {
