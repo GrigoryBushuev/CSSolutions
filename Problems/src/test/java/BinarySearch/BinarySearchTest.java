@@ -1,6 +1,5 @@
 package BinarySearch;
 
-import Arrays.TwoSumInputSorted;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;

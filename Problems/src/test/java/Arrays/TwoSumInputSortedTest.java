@@ -1,8 +1,7 @@
 package Arrays;
 
+import Arrays.TwoPointers.TwoSumInputSorted;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
